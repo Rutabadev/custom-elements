@@ -1,7 +1,7 @@
 import Card from "../card";
 
-const downArrow = "M 0 0 L 10 10 L 20 0";
-const upArrow = "M 0 10 L 10 0 L 20 10";
+const downArrow = "M 0 0 L 5 5 L 10 0";
+const upArrow = "M 0 5 L 5 0 L 10 5";
 
 export default class ExpandableCard extends Card {
    constructor() {
@@ -24,7 +24,7 @@ export default class ExpandableCard extends Card {
             svg {
                position: absolute;
                right: 10px;
-               bottom: 10px;
+               top: 15px;
             }
 
             path {
@@ -34,7 +34,7 @@ export default class ExpandableCard extends Card {
                transition: d var(--transition-speed, .2s);
             }
          </style>
-         <svg width="20" height="10">
+         <svg width="10" height="10">
             <path d="${this.expanded ? upArrow : downArrow}" />
          </svg>
       `;
