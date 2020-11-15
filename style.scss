@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto");
+* {
+   box-sizing: content-box;
+}
+
+html,
+body {
+   padding: 0;
+   margin: 0;
+   min-height: 100vh;
+   font-family: Roboto, Geneva, Tahoma, sans-serif;
+}
+
+header {
+   background-color: #333;
+   color: #eee;
+   box-shadow: 0px 3px 3px rgba(10, 10, 10, 0.7);
+   & > h1 {
+      margin: 0;
+      padding: 1.4rem;
+   }
+}
+
+section {
+   padding: 2rem;
+}
+
+.custom-element-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+   gap: 2rem;
+   place-items: center;
+}

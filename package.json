@@ -1,0 +1,16 @@
+{
+   "name": "custom-elements",
+   "version": "0.0.2",
+   "description": "Custom HTML elements Material Design inspired.",
+   "scripts": {
+      "start": "parcel index.html",
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "devDependencies": {
+      "parcel-bundler": "^1.12.4",
+      "sass": "^1.29.0"
+   }
+}
