@@ -11,5 +11,5 @@ Custom HTML elements Material Design inspired.
 Clone the repository, then run:
 
 ```sh
-npm starte
+npm start
 ```
