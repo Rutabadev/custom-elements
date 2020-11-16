@@ -12,9 +12,10 @@ export default class ExpandableCard extends Card {
             :host {
                position: relative;
                padding-right: 35px;
-               text-overflow: ellipsis;
                overflow: hidden;
-               transition: height var(--transition-speed, .2s)
+               white-space: nowrap;
+               text-overflow: ellipsis;
+               transition: height var(--transition-speed, .2s);
             }
 
             :host(:hover) {
@@ -46,6 +47,18 @@ export default class ExpandableCard extends Card {
 
    onclick() {
       this.expanded = !this.expanded;
+      const transitionSpeed = (
+         getComputedStyle(this).getPropertyValue("--transition-speed") || 200
+      )
+         .replace("ms", "")
+         .replace("s", "000");
+      if (this.expanded) {
+         this.style["white-space"] = "normal";
+      } else {
+         setTimeout(() => {
+            this.style["white-space"] = "nowrap";
+         }, transitionSpeed);
+      }
       this.style.height = this.expanded
          ? `${this.scrollHeight}px`
          : this.height;

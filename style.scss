@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto");
+
 * {
-   box-sizing: content-box;
+   box-sizing: border-box;
 }
 
 html,
@@ -23,6 +24,13 @@ header {
 
 section {
    padding: 2rem;
+
+   & > mat-card {
+      padding: 2rem;
+      h2 {
+         margin: 0;
+      }
+   }
 }
 
 .custom-element-container {
