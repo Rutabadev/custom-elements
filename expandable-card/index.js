@@ -7,6 +7,40 @@ export default class ExpandableCard extends Card {
    constructor() {
       super();
       this.expanded = false;
+      this.transitionSpeed = (
+         getComputedStyle(this).getPropertyValue("--transition-speed") || 200
+      )
+         .toString()
+         .replace("ms", "")
+         .replace("s", "000");
+      this.expandElements = [
+         {
+            0: () => {
+               setTimeout(() => {
+                  this.style["white-space"] = "nowrap";
+               }, this.transitionSpeed);
+            },
+            1: () => {
+               this.style["white-space"] = "normal";
+            },
+         },
+         {
+            0: () => {
+               this.style.height = this.height;
+            },
+            1: () => {
+               this.style.height = `${this.scrollHeight}px`;
+            },
+         },
+         {
+            0: () => {
+               this.root.querySelector("path").setAttribute("d", downArrow);
+            },
+            1: () => {
+               this.root.querySelector("path").setAttribute("d", upArrow);
+            },
+         },
+      ];
       this.root.innerHTML += /*html*/ `
          <style>
             :host {
@@ -47,24 +81,6 @@ export default class ExpandableCard extends Card {
 
    onclick() {
       this.expanded = !this.expanded;
-      const transitionSpeed = (
-         getComputedStyle(this).getPropertyValue("--transition-speed") || 200
-      )
-         .toString()
-         .replace("ms", "")
-         .replace("s", "000");
-      if (this.expanded) {
-         this.style["white-space"] = "normal";
-      } else {
-         setTimeout(() => {
-            this.style["white-space"] = "nowrap";
-         }, transitionSpeed);
-      }
-      this.style.height = this.expanded
-         ? `${this.scrollHeight}px`
-         : this.height;
-      this.root
-         .querySelector("path")
-         .setAttribute("d", this.expanded ? upArrow : downArrow);
+      this.expandElements.forEach((el) => el[+this.expanded]());
    }
 }
