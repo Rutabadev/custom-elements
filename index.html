@@ -15,7 +15,13 @@
       <main>
          <section>
             <mat-card>
-               <h2>Card</h2>
+               <h2>Card (<code>mat-card</code>)</h2>
+               <p>A simple card with a slot inside to add any html.</p>
+               <h3>Attributes</h3>
+               <ul>
+                  <li><strong>width</strong>: Force the card's width.</li>
+                  <li><strong>height</strong>: Force the card's height.</li>
+               </ul>
                <div class="custom-element-container">
                   <mat-card>Card with text</mat-card>
                   <mat-card>
@@ -37,13 +43,81 @@
          </section>
          <section>
             <mat-card>
-               <h2>Expandable Card</h2>
+               <h2>Expandable Card (<code>mat-exp-card</code>)</h2>
+               <p>
+                  Extends card. When clicked, the card expands to show the full
+                  content. The height must be manually set or the card will
+                  always be at full height.
+               </p>
+               <h3>Attributes</h3>
+               <ul>
+                  <li><strong>width</strong>: Force the card's width.</li>
+                  <li><strong>height</strong>: Force the card's height.</li>
+               </ul>
                <div class="custom-element-container">
                   <mat-exp-card>Expandable card with text</mat-exp-card>
                   <mat-exp-card width="200px" height="30px"
                      >Lorem ipsum dolor sit amet consectetur adipisicing elit.
                      Laboriosam dolorum rem eveniet sint.</mat-exp-card
                   >
+               </div>
+            </mat-card>
+         </section>
+         <section>
+            <mat-card>
+               <h2>Image Container (<code>mat-img</code>)</h2>
+               <p>
+                  An image container that takes up the same space even if the
+                  image does not load.
+               </p>
+               <p>
+                  This is to avoid sudden layout change when the images load,
+                  and to help it stay consistent when images are missing.
+               </p>
+               <h3>Attributes</h3>
+               <ul>
+                  <li><strong>src</strong>: The image src.</li>
+                  <li><strong>width</strong>: Force the card's width.</li>
+                  <li>
+                     <strong>ratio</strong>: The image ratio. Defaults to 16:9.
+                  </li>
+                  <li><strong>alt</strong>: The image alt text.</li>
+               </ul>
+               <div class="custom-element-container">
+                  <div class="image-container">
+                     <h3>1:1</h3>
+                     <mat-img
+                        img="https://placehold.co/150"
+                        width="150px"
+                        ratio="1:1"
+                     ></mat-img>
+                  </div>
+                  <div class="image-container image-container--unavailable">
+                     <h3>1:1 Unavailable</h3>
+                     <mat-img
+                        img="https://placehold.co/broken"
+                        alt="fake unavailable picture"
+                        width="150px"
+                        ratio="1:1"
+                     ></mat-img>
+                  </div>
+                  <div class="image-container">
+                     <h3>16:9</h3>
+                     <mat-img
+                        img="https://placehold.co/720x405"
+                        width="200px"
+                        ratio="16:9"
+                     ></mat-img>
+                  </div>
+                  <div class="image-container image-container--unavailable">
+                     <h3>16:9 Unavailable</h3>
+                     <mat-img
+                        img="https://placehold.co/broken"
+                        alt="fake unavailable picture"
+                        width="200px"
+                        ratio="16:9"
+                     ></mat-img>
+                  </div>
                </div>
             </mat-card>
          </section>
