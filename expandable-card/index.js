@@ -50,6 +50,7 @@ export default class ExpandableCard extends Card {
       const transitionSpeed = (
          getComputedStyle(this).getPropertyValue("--transition-speed") || 200
       )
+         .toString()
          .replace("ms", "")
          .replace("s", "000");
       if (this.expanded) {
