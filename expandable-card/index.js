@@ -1,16 +1,15 @@
 import Card from '../card';
 
 const downArrow = 'M 0 0 L 5 5 L 10 0';
-const upArrow = 'M 0 5 L 5 0 L 10 5';
+const upArrow = 'M 0 5 L 5 1 L 10 5';
 
 export default class ExpandableCard extends Card {
    constructor() {
       super();
       this.expanded = false;
       this.transitionSpeed = (
-         getComputedStyle(this).getPropertyValue('--transition-speed') || 200
+         getComputedStyle(this).getPropertyValue('--transition-speed') || '200'
       )
-         .toString()
          .replace('ms', '')
          .replace('s', '000');
       this.expandElements = [
