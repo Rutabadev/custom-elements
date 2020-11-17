@@ -1,16 +1,16 @@
-import CustomElement from "../core/custom-element";
+import CustomElement from '../core/custom-element';
 
 export default class ImageContainer extends CustomElement {
    constructor() {
       super();
-      this.src = this.getAttribute("img") || "";
-      this.alt = this.getAttribute("alt") || "";
-      this.ratio = this.getAttribute("ratio");
+      this.src = this.getAttribute('img') || '';
+      this.alt = this.getAttribute('alt') || '';
+      this.ratio = this.getAttribute('ratio');
       if (!this.ratio) {
          if (this.width && this.height) {
             this.ratio = `${this.width}:${this.height}`;
          } else {
-            this.ratio = "16:9";
+            this.ratio = '16:9';
          }
       }
       this.root.innerHTML += /*html*/ `
@@ -23,7 +23,7 @@ export default class ImageContainer extends CustomElement {
 
             .image-placeholder {
                padding-bottom: 
-                  calc(${this.width} / ${this.ratio.replace(":", "*")})
+                  calc(${this.width} / ${this.ratio.replace(':', '*')})
             }
 
             img {

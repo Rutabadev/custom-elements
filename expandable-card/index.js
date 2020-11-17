@@ -1,27 +1,27 @@
-import Card from "../card";
+import Card from '../card';
 
-const downArrow = "M 0 0 L 5 5 L 10 0";
-const upArrow = "M 0 5 L 5 0 L 10 5";
+const downArrow = 'M 0 0 L 5 5 L 10 0';
+const upArrow = 'M 0 5 L 5 0 L 10 5';
 
 export default class ExpandableCard extends Card {
    constructor() {
       super();
       this.expanded = false;
       this.transitionSpeed = (
-         getComputedStyle(this).getPropertyValue("--transition-speed") || 200
+         getComputedStyle(this).getPropertyValue('--transition-speed') || 200
       )
          .toString()
-         .replace("ms", "")
-         .replace("s", "000");
+         .replace('ms', '')
+         .replace('s', '000');
       this.expandElements = [
          {
             0: () => {
                setTimeout(() => {
-                  this.style["white-space"] = "nowrap";
+                  this.style['white-space'] = 'nowrap';
                }, this.transitionSpeed);
             },
             1: () => {
-               this.style["white-space"] = "normal";
+               this.style['white-space'] = 'normal';
             },
          },
          {
@@ -34,10 +34,10 @@ export default class ExpandableCard extends Card {
          },
          {
             0: () => {
-               this.root.querySelector("path").setAttribute("d", downArrow);
+               this.root.querySelector('path').setAttribute('d', downArrow);
             },
             1: () => {
-               this.root.querySelector("path").setAttribute("d", upArrow);
+               this.root.querySelector('path').setAttribute('d', upArrow);
             },
          },
       ];
@@ -77,7 +77,7 @@ export default class ExpandableCard extends Card {
    }
 
    connectedCallback() {
-      this.addEventListener("click", this.onclick);
+      this.addEventListener('click', this.onclick);
    }
 
    onclick() {

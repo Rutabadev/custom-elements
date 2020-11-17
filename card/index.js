@@ -1,4 +1,4 @@
-import CustomElement from "../core/custom-element";
+import CustomElement from '../core/custom-element';
 
 export default class Card extends CustomElement {
    constructor() {
