@@ -1,4 +1,4 @@
-import CustomElement from '../core/custom-element';
+import { CustomElement } from '/core';
 
 export default class ImageContainer extends CustomElement {
    constructor() {
