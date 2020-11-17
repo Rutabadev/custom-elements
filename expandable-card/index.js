@@ -46,6 +46,7 @@ export default class ExpandableCard extends Card {
             :host {
                position: relative;
                padding-right: 35px;
+               max-width: 100%;
                overflow: hidden;
                white-space: nowrap;
                text-overflow: ellipsis;
