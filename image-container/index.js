@@ -1,24 +1,22 @@
-export default class ImageContainer extends HTMLElement {
+import CustomElement from "../core/custom-element";
+
+export default class ImageContainer extends CustomElement {
    constructor() {
       super();
       this.src = this.getAttribute("img") || "";
       this.alt = this.getAttribute("alt") || "";
-      this.width = this.getAttribute("width") || "200px";
       this.ratio = this.getAttribute("ratio") || "16:9";
-      this.root = this.attachShadow({ mode: "open" });
-      this.root.innerHTML = /*html*/ `
+      this.root.innerHTML += /*html*/ `
          <style>
             :host {
-               --image-width: ${this.width};
                display: block;
                position: relative;
-               width: var(--image-width);
                background-color: transparent;
             }
 
             .image-placeholder {
                padding-bottom: 
-               calc(var(--image-width) / ${this.ratio.replace(":", "*")})
+                  calc(${this.width} / ${this.ratio.replace(":", "*")})
             }
 
             img {
