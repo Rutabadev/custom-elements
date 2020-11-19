@@ -7,10 +7,6 @@ customElements.define(
          super();
          this.root.innerHTML += /*html*/ `
          <style>
-            section {
-               padding: 2rem;               
-            }
-
             section > mat-card {
                padding: 2rem;
                h2 {
