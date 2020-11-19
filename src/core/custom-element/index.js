@@ -7,6 +7,7 @@ export default class CustomElement extends HTMLElement {
       this.root.innerHTML = /*html*/ `
          <style>
             :host {
+               display: block;
                width: ${this.width ? this.width : 'inherit'};
                height: ${this.height ? this.height : 'inherit'};
             }
