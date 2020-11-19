@@ -49,7 +49,6 @@ export default class ExpandableCard extends Card {
                overflow: hidden;
                white-space: nowrap;
                text-overflow: ellipsis;
-               transition: height var(--transition-speed, .2s);
             }
 
             :host(:hover) {
@@ -73,6 +72,8 @@ export default class ExpandableCard extends Card {
             <path d="${this.expanded ? upArrow : downArrow}" />
          </svg>
       `;
+
+      this.transition += ', height var(--transition-speed, .2s)';
    }
 
    connectedCallback() {
