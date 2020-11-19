@@ -23,25 +23,6 @@ header {
    }
 }
 
-section {
-   padding: 2rem;
-
-   & > mat-card {
-      padding: 2rem;
-      h2 {
-         margin: 0 0 2rem 0;
-      }
-   }
-}
-
-.custom-element-container {
-   display: grid;
-   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-   gap: 5rem;
-   place-items: center;
-   margin-top: 2rem;
-}
-
 .image-container {
    text-align: center;
 
