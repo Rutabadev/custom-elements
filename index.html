@@ -31,9 +31,10 @@
                <p>Hoverable card with p</p>
             </mat-card>
             <mat-card>
-               <button>Card with button</button>
+               <p>Parent card</p>
+               <mat-card>Nested card.</mat-card>
             </mat-card>
-            <mat-card width="200px" height="220px">
+            <mat-card>
                <h1>h1</h1>
                <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
@@ -53,7 +54,7 @@
                <li><strong>height</strong>: Force the card's height.</li>
             </ul>
             <mat-card-exp>Expandable card</mat-card-exp>
-            <mat-card-exp hoverable height="30px"
+            <mat-card-exp hoverable
                >Lorem ipsum dolor sit amet consectetur adipisicing elit.
                Laboriosam dolorum rem eveniet sint.</mat-card-exp
             >
@@ -79,8 +80,7 @@
                <h3>1:1</h3>
                <mat-img
                   img="https://placehold.co/150"
-                  width="150px"
-                  height="150px"
+                  style="width: 150px; height: 150px"
                ></mat-img>
             </div>
             <div class="image-container image-container--unavailable">
@@ -88,16 +88,16 @@
                <mat-img
                   img="https://placehold.co/broken"
                   alt="fake unavailable picture"
-                  width="150px"
                   ratio="1:1"
+                  style="width: 150px"
                ></mat-img>
             </div>
             <div class="image-container">
                <h3>16:9</h3>
                <mat-img
                   img="https://placehold.co/720x405"
-                  width="200px"
                   ratio="16:9"
+                  style="width: 200px"
                ></mat-img>
             </div>
             <div class="image-container image-container--unavailable">
@@ -105,7 +105,8 @@
                <mat-img
                   img="https://placehold.co/broken"
                   alt="fake unavailable picture"
-                  width="200px"
+                  ratio="16:9"
+                  style="width: 200px"
                ></mat-img>
             </div>
          </section-card>

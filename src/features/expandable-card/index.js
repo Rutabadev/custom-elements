@@ -7,6 +7,7 @@ export default class ExpandableCard extends Card {
    constructor() {
       super();
       this.expanded = false;
+      this.shrinkedHeight = this.scrollHeight + 'px';
       this.transitionSpeed = (
          getComputedStyle(this).getPropertyValue('--transition-speed') || '200'
       )
@@ -25,10 +26,10 @@ export default class ExpandableCard extends Card {
          },
          {
             0: () => {
-               this.style.height = this.height;
+               this.style.height = this.shrinkedHeight;
             },
             1: () => {
-               this.style.height = `${this.scrollHeight}px`;
+               this.style.height = this.scrollHeight + 'px';
             },
          },
          {
@@ -49,6 +50,7 @@ export default class ExpandableCard extends Card {
                overflow: hidden;
                white-space: nowrap;
                text-overflow: ellipsis;
+               height: ${this.shrinkedHeight}
             }
 
             :host(:hover) {
