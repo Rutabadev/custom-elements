@@ -22,17 +22,13 @@
          </div>
          <section-card name="Card" code="mat-card">
             <p slot="desc">A simple card with a slot inside to add any html.</p>
-            <ul slot="attributes">
-               <li><strong>width</strong>: Force the card's width.</li>
-               <li><strong>height</strong>: Force the card's height.</li>
-            </ul>
             <mat-card>Card with text</mat-card>
             <mat-card hoverable>
                <p>Hoverable card with p</p>
             </mat-card>
-            <mat-card>
+            <mat-card hoverable>
                <p>Parent card</p>
-               <mat-card>Nested card.</mat-card>
+               <mat-card hoverable>Nested card.</mat-card>
             </mat-card>
             <mat-card>
                <h1>h1</h1>
@@ -49,28 +45,36 @@
                content. The height must be manually set or the card will always
                be at full height.
             </p>
-            <ul slot="attributes">
-               <li><strong>width</strong>: Force the card's width.</li>
-               <li><strong>height</strong>: Force the card's height.</li>
-            </ul>
             <mat-card-exp>Expandable card</mat-card-exp>
             <mat-card-exp hoverable
                >Lorem ipsum dolor sit amet consectetur adipisicing elit.
                Laboriosam dolorum rem eveniet sint.</mat-card-exp
             >
+            <mat-card-exp style="height: 60px"
+               >Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+               eveniet tenetur fugit magnam amet, nihil reprehenderit eaque
+               sequi sit maxime tempore similique perferendis optio assumenda
+               totam laudantium explicabo? Velit, vero! Expedita cum eos
+               molestiae dignissimos sit reprehenderit.</mat-card-exp
+            >
          </section-card>
          <section-card name="Image Container" code="mat-img">
-            <p slot="desc">
-               An image container that takes up the same space even if the image
-               does not load.
-            </p>
-            <p slot="desc">
-               This is to avoid sudden layout change when the images load, and
-               to help it stay consistent when images are missing.
-            </p>
+            <div slot="desc">
+               <p>
+                  An image container that takes up the same space even if the
+                  image does not load.
+               </p>
+               <p>
+                  This is to avoid sudden layout change when the images load,
+                  and to help it stay consistent when images are missing.
+               </p>
+               <strong
+                  >It is required to set the mat-img width in order for the
+                  placeholder to work.</strong
+               >
+            </div>
             <ul slot="attributes">
                <li><strong>src</strong>: The image src.</li>
-               <li><strong>width</strong>: Force the element's width.</li>
                <li>
                   <strong>ratio</strong>: The image ratio. Defaults to 16:9.
                </li>
@@ -96,7 +100,6 @@
                <h3>16:9</h3>
                <mat-img
                   img="https://placehold.co/720x405"
-                  ratio="16:9"
                   style="width: 200px"
                ></mat-img>
             </div>
@@ -105,7 +108,6 @@
                <mat-img
                   img="https://placehold.co/broken"
                   alt="fake unavailable picture"
-                  ratio="16:9"
                   style="width: 200px"
                ></mat-img>
             </div>

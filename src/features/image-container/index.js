@@ -16,23 +16,27 @@ export default class ImageContainer extends CustomElement {
       this.root.innerHTML += /*html*/ `
          <style>
             :host {
-               display: block;
                position: relative;
-               background-color: transparent;
             }
 
-            .image-placeholder {
-               padding-bottom:
-                  calc(${this.style.width} / ${this.ratio.replace(':', '*')})
-            }
+            ${
+               this.style.width
+                  ? `
+                  .image-placeholder {
+                     padding-bottom:
+                     calc(${this.style.width} / ${this.ratio.replace(':', '*')})
+                  }
 
-            img {
-               position: absolute;
-               top: 0;
-               left: 0;
-               width: 100%;
-               height: 100%;
-            }
+                  img {
+                     position: absolute;
+                     top: 0;
+                     left: 0;
+                     width: 100%;
+                     height: 100%;
+                  }
+               `
+                  : ''
+            }            
          </style>
          <div class="image-placeholder"></div>
          <img src="${this.src}" alt="${this.alt}"/>

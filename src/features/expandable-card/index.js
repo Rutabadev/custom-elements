@@ -8,6 +8,7 @@ export default class ExpandableCard extends Card {
       super();
       this.expanded = false;
       this.shrinkedHeight = this.scrollHeight + 'px';
+      this.leaveWrap = !!this.style.height;
       this.transitionSpeed = (
          getComputedStyle(this).getPropertyValue('--transition-speed') || '200'
       )
@@ -16,9 +17,10 @@ export default class ExpandableCard extends Card {
       this.expandElements = [
          {
             0: () => {
-               setTimeout(() => {
-                  this.style['white-space'] = 'nowrap';
-               }, this.transitionSpeed);
+               !this.leaveWrap &&
+                  setTimeout(() => {
+                     this.style['white-space'] = 'nowrap';
+                  }, this.transitionSpeed);
             },
             1: () => {
                this.style['white-space'] = 'normal';
@@ -48,8 +50,14 @@ export default class ExpandableCard extends Card {
                padding-right: 35px;
                max-width: 100%;
                overflow: hidden;
-               white-space: nowrap;
-               text-overflow: ellipsis;
+               ${
+                  !this.leaveWrap
+                     ? `
+                     white-space: nowrap;
+                     text-overflow: ellipsis;
+                  `
+                     : ''
+               }               
                height: ${this.shrinkedHeight}
             }
 

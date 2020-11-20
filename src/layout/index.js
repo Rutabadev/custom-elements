@@ -8,10 +8,11 @@ customElements.define(
          this.root.innerHTML += /*html*/ `
          <style>
             section > mat-card {
-               padding: 2rem;
-               h2 {
-                  margin: 0 0 2rem 0;
-               }
+               padding: 2rem;               
+            }
+
+            section > mat-card > h2 {
+               margin: 0 0 2rem 0;
             }
 
             .custom-element-container {
