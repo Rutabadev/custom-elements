@@ -1,29 +1,29 @@
-import Card from '../card';
+import Card from "../card";
 
-const downArrow = 'M 0 0 L 5 5 L 10 0';
-const upArrow = 'M 0 5 L 5 1 L 10 5';
+const downArrow = "M 0 0 L 5 5 L 10 0";
+const upArrow = "M 0 5 L 5 1 L 10 5";
 
 export default class ExpandableCard extends Card {
    constructor() {
       super();
       this.expanded = false;
-      this.shrinkedHeight = this.scrollHeight + 'px';
+      this.shrinkedHeight = this.scrollHeight + "px";
       this.leaveWrap = !!this.style.height;
       this.transitionSpeed = (
-         getComputedStyle(this).getPropertyValue('--transition-speed') || '200'
+         getComputedStyle(this).getPropertyValue("--transition-speed") || "200"
       )
-         .replace('ms', '')
-         .replace('s', '000');
+         .replace("ms", "")
+         .replace("s", "000");
       this.expandElements = [
          {
             0: () => {
                !this.leaveWrap &&
                   setTimeout(() => {
-                     this.style['white-space'] = 'nowrap';
+                     this.style["white-space"] = "nowrap";
                   }, this.transitionSpeed);
             },
             1: () => {
-               this.style['white-space'] = 'normal';
+               this.style["white-space"] = "normal";
             },
          },
          {
@@ -31,15 +31,15 @@ export default class ExpandableCard extends Card {
                this.style.height = this.shrinkedHeight;
             },
             1: () => {
-               this.style.height = this.scrollHeight + 'px';
+               this.style.height = this.scrollHeight + "px";
             },
          },
          {
             0: () => {
-               this.root.querySelector('path').setAttribute('d', downArrow);
+               this.root.querySelector("path").setAttribute("d", downArrow);
             },
             1: () => {
-               this.root.querySelector('path').setAttribute('d', upArrow);
+               this.root.querySelector("path").setAttribute("d", upArrow);
             },
          },
       ];
@@ -56,7 +56,7 @@ export default class ExpandableCard extends Card {
                      white-space: nowrap;
                      text-overflow: ellipsis;
                   `
-                     : ''
+                     : ""
                }               
                height: ${this.shrinkedHeight}
             }
@@ -77,17 +77,27 @@ export default class ExpandableCard extends Card {
                stroke-width: 2px;
                transition: d var(--transition-speed, .2s);
             }
+
+            .fadeout {
+               position: absolute;
+               background: linear-gradient(transparent, white);
+               height: 10px;
+               left: 0;
+               right: 0;
+               bottom: 0;
+            }
          </style>
          <svg width="10" height="10">
             <path d="${this.expanded ? upArrow : downArrow}" />
          </svg>
+         <div class="fadeout"></div>
       `;
 
-      this.transition += ', height var(--transition-speed, .2s)';
+      this.transition += ", height var(--transition-speed, .2s)";
    }
 
    connectedCallback() {
-      this.addEventListener('click', this.onclick);
+      this.addEventListener("click", this.onclick);
    }
 
    onclick() {
