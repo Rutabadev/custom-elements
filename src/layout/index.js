@@ -39,5 +39,13 @@ customElements.define(
          </section>
       `;
       }
+
+      connectedCallback() {
+         // Hide attributes title if no attributes slotted
+         const attributes = this.root.querySelector('slot[name=attributes]');
+         if (!attributes.assignedElements().length) {
+            this.root.querySelector('h3').style.display = 'none';
+         }
+      }
    }
 );
